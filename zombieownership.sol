@@ -28,8 +28,10 @@ contract ZombieOwnership is ZombieAttack, ERC721 {
   }
 
   // 1. Add function modifier here
-  function approve(address _approved, uint256 _tokenId) external payable {
+
+  function approve(address _approved, uint256 _tokenId) external payable onlyOwnerOf(_tokenId) {
     // 2. Define function here
+    zombieApprovals[_tokenId] = _approved;
   }
 
 
